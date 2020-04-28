@@ -8,6 +8,7 @@ import { MaterialModule } from '../app/material/material.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component'
+import{ HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TicketListComponent } from './ticket-list/ticket-list.component'
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
