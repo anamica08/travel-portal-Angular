@@ -10,8 +10,8 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  username = ''
-  password = ''
+  username:string = ''
+  password:string = ''
   invalidLogin = false
 
   constructor(private router: Router,
@@ -21,16 +21,19 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-    (this.loginservice.authenticate(this.username, this.password).subscribe(
-      data => {
-        this.router.navigate(['ticket'])
-        this.invalidLogin = false
-      },
-      error => {
-        this.invalidLogin = true
-
-      }
-    )
-    );
-  }
-}
+    if(this.username != "" && this.password != ""){
+      (this.loginservice.authenticate(this.username, this.password).subscribe(
+        data => {
+          this.router.navigate(['ticket'])
+          this.invalidLogin = false
+        },
+        error => {
+          this.invalidLogin = true
+  
+        }
+      )
+      );
+    }
+  
+    }
+    }

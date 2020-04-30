@@ -19,4 +19,8 @@ export class HttpclientService {
   getAllTickets() {
     return this.httpClient.get<Ticket[]>(`${this._baseUrl}/mytickets`);
   }
+  
+  getMailWithCredentials(email:string){
+    return this.httpClient.get<any>(`${this._baseUrl}/${email}/forgotpassword`,)
+  }
 }

@@ -15,7 +15,8 @@ import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { LogoutComponent } from './logout/logout.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.component'
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     
     LogoutComponent,
     
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    
+    AdminTicketListComponent
   ],
   imports: [
     BrowserModule,

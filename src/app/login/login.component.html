@@ -19,12 +19,14 @@
                     <td>
                         <mat-form-field class="example-full-width" hideRequiredMarker appearance="outline" color="primary">
                             <mat-label>Password</mat-label>
-                            <input matInput color="accent" [(ngModel)]="password" type="password" name="password" required>
+                            <input matInput color="accent" [(ngModel)]="password" type="password" name="password">
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
-                    <a class="forgot-password" routerLink=''>Forgot Username & Password?</a>
+                    <app-forgot-password [email]="username">
+
+                    </app-forgot-password>
                 </tr>
             </table>
         </form>
