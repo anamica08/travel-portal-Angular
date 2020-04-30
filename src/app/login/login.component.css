@@ -1,0 +1,39 @@
+.example-card {
+    max-width: 400px;
+    height: auto;
+}
+
+.example-header-image {
+    background-image: url('../../assets/ce54bf11889067.562541ef7cde4.png');
+    background-size: cover;
+}
+
+mat-card {
+    margin: 70px auto;
+    background-color: whitesmoke;
+}
+
+.example-full-width {
+    margin: 0 auto;
+    width: 100%;
+}
+
+input {
+    width: 95%;
+}
+
+button {
+    width: 100%;
+}
+
+mat-card-header {
+    margin-bottom: 13px;
+}
+
+mat-card-title {
+    margin-top: 12px;
+}
+
+.forgot-password {
+    float: right;
+}

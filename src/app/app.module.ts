@@ -14,7 +14,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
-import { LogoutComponent } from './logout/logout.component'
+import { LogoutComponent } from './logout/logout.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { LogoutComponent } from './logout/logout.component'
     
     LoginComponent,
     
-    LogoutComponent
+    LogoutComponent,
+    
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
