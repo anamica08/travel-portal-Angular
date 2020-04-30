@@ -5,3 +5,7 @@
     background-color: #222222;
     text-align: center;
 }
+
+mat-toolbar {
+    height: 40px;
+}

@@ -1,10 +1,10 @@
 <mat-toolbar color="primary" class="navbar">
-    <div>Nagarro Travel Portal</div>
+    <div class="title"><img src="../../assets/download.png"> </div>
     <div>
-        <span><a routerLink="#" class="nav-link">Login</a></span>
-        <span><a routerLink="#"class="nav-link">Logout</a></span>
-        <span><a routerLink="/ticket"class="nav-link">View Ticket</a></span>
-        <span><a routerLink="#"class="nav-link">Raise Ticket</a></span>
+        <span><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Login</a></span>
+        <span><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></span>
+        <span><a *ngIf="loginService.isUserLoggedIn()" routerLink="/ticket" class="nav-link">View Ticket</a></span>
+        <!-- <span><a routerLink="#" class="nav-link">Raise Ticket</a></span> -->
 
 
         <!-- <a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a></li>

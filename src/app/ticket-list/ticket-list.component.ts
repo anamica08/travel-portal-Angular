@@ -19,7 +19,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class TicketListComponent implements OnInit {
 tickets:Ticket[];
 
- displayedColumns: string[] = ['tickedId', 'requestType','priority', 'status', 'submitDate'];
+ displayedColumns: string[] = ['tickedId', 'requestType','priority', 'status', 'submitDate','actions'];
  dataSource ;
 
 @ViewChild(MatSort) sort:MatSort;
@@ -32,6 +32,7 @@ tickets:Ticket[];
 
   ngOnInit(): void {
     this.httpClientService.getAllTickets().subscribe((response) => {
+      console.log(response);
      this.tickets = response;
      this.dataSource = new MatTableDataSource(response);
      this.dataSource.sort = this.sort;

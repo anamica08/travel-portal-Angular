@@ -10,3 +10,7 @@ a {
     color: white;
     text-decoration: none;
 }
+
+mat-toolbar {
+    height: 71px;
+}

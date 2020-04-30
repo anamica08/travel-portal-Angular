@@ -33,10 +33,15 @@
             <mat-header-cell mat-sort-header *matHeaderCellDef> Submit Date </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.submitDate}} </mat-cell>
         </ng-container>
+        <!--Edit button-->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn">View Details</button></mat-cell>
+        </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
     </mat-table>
 
-    <mat-paginator pageSize="3" [pageSizeOptions]="[3,5,8]" showFirstLastButtons></mat-paginator>
+    <mat-paginator pageSize="3" [pageSizeOptions]="[3,5]" showFirstLastButtons></mat-paginator>
 </div>

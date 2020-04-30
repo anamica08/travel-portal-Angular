@@ -7,14 +7,16 @@ import { Ticket } from '../model/ticket';
   providedIn: 'root',
 })
 export class HttpclientService {
+
   _baseUrl: String = 'http://localhost:8080';
+
   constructor(private httpClient: HttpClient) {}
 
-  getEmployees() {
+  getEmployees() {  
     return this.httpClient.get<Employee[]>(`${this._baseUrl}/employees`);
   }
 
   getAllTickets() {
-    return this.httpClient.get<Ticket[]>(`${this._baseUrl}/ticket`);
+    return this.httpClient.get<Ticket[]>(`${this._baseUrl}/mytickets`);
   }
 }

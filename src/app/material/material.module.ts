@@ -6,6 +6,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import{MatCardModule}from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 const MaterialComponents =[
@@ -15,7 +21,12 @@ const MaterialComponents =[
   MatFormFieldModule,
   MatInputModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatCardModule,
+  MatDialogModule,
+  MatMenuModule,
+  MatIconModule,
+  MatProgressSpinnerModule
 
 ];
 

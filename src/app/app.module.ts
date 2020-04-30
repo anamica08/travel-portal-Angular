@@ -8,23 +8,42 @@ import { MaterialModule } from '../app/material/material.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component'
-import{ HttpClientModule } from '@angular/common/http'
+import{ HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import {FormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { HttpInterceptorService } from './service/http-interceptor.service';
+import { LogoutComponent } from './logout/logout.component'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TicketListComponent
+    TicketListComponent,
+    
+    PageNotFoundComponent,
+    
+    LoginComponent,
+    
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+  {
+
+    provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true 
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
