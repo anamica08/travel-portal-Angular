@@ -1,0 +1,10 @@
+#canvas {
+    display: block;
+    height: 352px !important;
+    width: 1000px !important;
+    margin: 0 auto !important;
+}
+
+.chart {
+    margin-top: 77px;
+}

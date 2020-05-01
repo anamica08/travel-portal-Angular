@@ -17,6 +17,8 @@ import { HttpInterceptorService } from './service/http-interceptor.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.component'
+import {CoronaStatsService } from '../app/service/corona-stats.service';
+import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats-country.component'
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.
     
     ForgotPasswordComponent,
     
-    AdminTicketListComponent
+    AdminTicketListComponent,
+    
+    CoronaStatsCountryComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +51,10 @@ import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.
   providers: [
   {
 
-    provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true 
-  }
+    provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true ,
+    
+  },
+  CoronaStatsService
   ],
   bootstrap: [AppComponent]
 })
