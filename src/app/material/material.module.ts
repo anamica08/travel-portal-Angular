@@ -11,9 +11,20 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import{MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import{MatBadgeModule} from '@angular/material/badge'
+import {MatSidenavModule} from '@angular/material/sidenav'
+import{MatListModule} from '@angular/material/list'
+import{MatGridListModule} from '@angular/material/grid-list'
+import {MatSelectModule} from '@angular/material/select'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatExpansionModule} from '@angular/material/expansion';
 
-
-
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 const MaterialComponents =[
   MatButtonModule,
   MatToolbarModule,
@@ -26,7 +37,25 @@ const MaterialComponents =[
   MatDialogModule,
   MatMenuModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,MatButtonModule,
+  MatToolbarModule,
+  MatCheckboxModule,
+  MatBadgeModule,
+  MatSidenavModule,
+  
+  MatListModule,
+  MatGridListModule,
+  MatExpansionModule,
+  MatSelectModule,
+  MatSlideToggleModule,
+  MatOptionModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+       
+  MatChipsModule,
+  MatTooltipModule,
+  
 
 ];
 

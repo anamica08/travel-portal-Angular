@@ -1,3 +1,15 @@
+<div class="container">
+    <mat-form-field class="example-full-width" hideRequiredMarker color="primary">
+        <mat-label>Enter Country </mat-label>
+        <input matInput [(ngModel)]="country" name="country" required>
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="drawGraph()" class="btn">Click Here</button>
+    </mat-card-actions>
+</div>
+
+
+
 <div class="chart">
     <canvas #myCanvas id="canvas">{{ chart }}</canvas>
 </div>

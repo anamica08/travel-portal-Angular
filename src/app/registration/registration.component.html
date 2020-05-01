@@ -1,0 +1,92 @@
+<form class="normal-form" [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+    <mat-grid-list cols="2" rowHeight="500px">
+        <mat-grid-tile class="tile">
+            <div class="controls-container">
+                <div class="mat-headline"> Register Yourself!</div>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="First Name" required />
+                    <mat-error>This feild is mandatory</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Last Name" required/>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Business Unit" required />
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Title" required/>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Email Address" required/>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Phone Number" required>
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="tile">
+            <div>
+                <!-- <mat-form-field class="demo-full-width">
+                    <input matInput [matDatepicker]="picker" placeholder="Date of birth" />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                </mat-form-field> -->
+
+                <!-- <span>DD</span><br /><br />
+                <mat-radio-group>
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field>
+                    <mat-select placeholder="Select Blog" [(value)]="selected">
+                        <mat-option>-- Select Any --</mat-option>
+                        <mat-option value="1">C#Corner</mat-option>
+                        <mat-option value="2">C#Corner</mat-option>
+                        <mat-option value="3">C#Corner</mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Address1" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Address2" required />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="City" required />
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Zip" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="State" [(value)]="citySelected" required>
+                        <mat-option>-- Select Any --</mat-option>
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">1</mat-option>
+                        <mat-option value="3">3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <mat-form-field class="put-space">
+                    <mat-select placeholder="Country" [(value)]="countrySelected" required>
+                        <mat-option>-- Select Any --</mat-option>
+                        <mat-option value="1">1</mat-option>
+                        <mat-option value="2">2</mat-option>
+                        <mat-option value="3">3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button class="form-button" color="accent">Submit</button>
+                <button mat-raised-button class="form-button" color="accent">Clear</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+
+</form>

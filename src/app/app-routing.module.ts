@@ -8,13 +8,22 @@ import {LogoutComponent} from '../app/logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
 import { ForgotPasswordComponent } from '../app/forgot-password/forgot-password.component'
 import { CoronaStatsCountryComponent }from '../app/corona-stats-country/corona-stats-country.component'
+import { RegistrationComponent } from './registration/registration.component'
+
+
+
 const routes: Routes = [
   {path:"",component:LoginComponent}, 
+  {path:'register',component:RegistrationComponent},
   { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   {path:'forgotpassword',component:ForgotPasswordComponent},
   {path:'corona',component:CoronaStatsCountryComponent},
+  
 
+
+
+  
   { path: '**', component: PageNotFoundComponent },
 ];
 

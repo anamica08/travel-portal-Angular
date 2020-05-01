@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component'
 import{ HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import {FormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +18,12 @@ import { LogoutComponent } from './logout/logout.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.component'
 import {CoronaStatsService } from '../app/service/corona-stats.service';
-import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats-country.component'
+import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats-country.component';
+import { RegistrationComponent } from './registration/registration.component'
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+
+  
+
 
 
 @NgModule({
@@ -38,7 +43,9 @@ import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats
     
     AdminTicketListComponent,
     
-    CoronaStatsCountryComponent
+    CoronaStatsCountryComponent,
+    
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
   {
@@ -54,7 +62,8 @@ import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats
     provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true ,
     
   },
-  CoronaStatsService
+  CoronaStatsService,
+  
   ],
   bootstrap: [AppComponent]
 })
