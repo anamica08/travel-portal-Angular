@@ -21,6 +21,7 @@ import {CoronaStatsService } from '../app/service/corona-stats.service';
 import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats-country.component';
 import { RegistrationComponent } from './registration/registration.component'
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
 
   
 
@@ -45,7 +46,9 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     
     CoronaStatsCountryComponent,
     
-    RegistrationComponent
+    RegistrationComponent,
+    
+    RegistrationConfirmationComponent
   ],
   imports: [
     BrowserModule,

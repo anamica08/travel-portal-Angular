@@ -21,6 +21,10 @@ export class HttpclientService {
   }
   
   getMailWithCredentials(email:string){
-    return this.httpClient.get<any>(`${this._baseUrl}/${email}/forgotpassword`,)
+    return this.httpClient.get<any>(`${this._baseUrl}/${email}/forgotpassword`)
+  }
+
+  register(userData){
+    return this.httpClient.post<any>(`${this._baseUrl}/register`,userData)
   }
 }

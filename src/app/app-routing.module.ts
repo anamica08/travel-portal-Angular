@@ -9,7 +9,7 @@ import { AuthGaurdService } from './service/auth-gaurd.service';
 import { ForgotPasswordComponent } from '../app/forgot-password/forgot-password.component'
 import { CoronaStatsCountryComponent }from '../app/corona-stats-country/corona-stats-country.component'
 import { RegistrationComponent } from './registration/registration.component'
-
+import { RegistrationConfirmationComponent} from './registration-confirmation/registration-confirmation.component'
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   {path:'forgotpassword',component:ForgotPasswordComponent},
   {path:'corona',component:CoronaStatsCountryComponent},
-  
+  {path:'confirm',component:RegistrationConfirmationComponent },
 
 
 
