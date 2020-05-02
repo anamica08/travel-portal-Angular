@@ -22,6 +22,7 @@ import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats
 import { RegistrationComponent } from './registration/registration.component'
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
+import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
 
   
 
@@ -48,7 +49,9 @@ import { RegistrationConfirmationComponent } from './registration-confirmation/r
     
     RegistrationComponent,
     
-    RegistrationConfirmationComponent
+    RegistrationConfirmationComponent,
+    
+    TicketDetailsComponent
   ],
   imports: [
     BrowserModule,

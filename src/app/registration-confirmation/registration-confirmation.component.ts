@@ -12,7 +12,7 @@ import { HttpclientService } from '../service/httpclient.service';
 })
 export class RegistrationConfirmationComponent implements OnInit {
   state$;
-  newUser=true;
+  
   constructor(public router: Router, private _http: HttpclientService,) { }
 
   ngOnInit(): void {
@@ -33,14 +33,14 @@ export class RegistrationConfirmationComponent implements OnInit {
   onSubmit(){
     this._http.register(this.state$).subscribe(
       response=>{
-        console.log("Success")
-        this.newUser = true;
+       alert("Thank You For Registering. You will soon get a mail with Login credentials.")
         this.router.navigateByUrl('')
     },
       error=>{
-        this.newUser = false;
+        alert("User with this email is already registered")
+        this.router.navigateByUrl('')
       }
     );
-    //console.log("final data",this.state$)
+    
   }
 }
