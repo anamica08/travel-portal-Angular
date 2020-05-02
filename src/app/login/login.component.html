@@ -8,6 +8,11 @@
             <table class="example-full-width" cellspacing="0">
                 <tr>
                     <td>
+                        <span class="error" *ngIf="invalidLogin">Invalid Username or Password</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <mat-form-field class="example-full-width" hideRequiredMarker appearance="outline" color="primary">
                             <mat-label>Username</mat-label>
                             <input matInput [(ngModel)]="username" name="username" required>
@@ -34,5 +39,7 @@
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button (click)="checkLogin()" color="accent">Login</button>
+
+
     </mat-card-actions>
 </mat-card>

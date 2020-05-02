@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { error } from 'protractor';
 
 
 
@@ -31,9 +32,10 @@ export class AuthenticationService {
   
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username');
+   // let user = sessionStorage.getItem('username');
+    let token = sessionStorage.getItem('token')
     //console.log(!(user === null))
-    return !(user === null);
+    return !(token === null);
   }
 
   logOut() {

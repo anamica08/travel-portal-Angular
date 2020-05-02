@@ -15,7 +15,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
   
   citySelected: string;
   countrySelected: String;
@@ -24,36 +24,17 @@ export class RegistrationComponent {
   
   constructor(
     private fb: FormBuilder,
-    private _http: HttpclientService,
+   
     public router: Router
   ) {
-    // router.events
-		// 	.pipe(
-		// 		filter(
-		// 			( event: NavigationEvent ) => {
-		// 				return( event instanceof NavigationStart );
-		// 			}
-		// 		)
-		// 	)
-		// 	.subscribe(
-		// 		( event: NavigationStart ) => {
- 
-		// 			console.group( "NavigationStart Event" );
-				
-		// 			console.log( "navigation id:", event.id );
-		// 			console.log( "route:", event.url );
-		// 			console.log( "trigger:", event.navigationTrigger );
-		// 			if ( event.navigationTrigger === "popstate" ) {
-		// 				this.populateForm();
-		// 			}
-					
-		// 		}
-		// 	)
-		// ;
- 
+    
 	}
  
-  
+  ngOnInit(){
+    if(history.state.state){
+      this.populateForm()
+    }
+  }
 
   
   //form builder
@@ -62,7 +43,7 @@ export class RegistrationComponent {
     lastName: ['', Validators.required],
     businessUnit: ['', Validators.required],
     title: ['', Validators.required],
-    email: ['', [Validators.required, Validators.pattern(this.emailRegx)]],
+    email: ['', [Validators.required,/* Validators.pattern(this.emailRegx)*/]],
     phone: [
       '',
       [
@@ -80,16 +61,14 @@ export class RegistrationComponent {
   });
 
   populateForm() {
-    let data = JSON.parse(localStorage.getItem('form'));
-    console.log("data",data)
+    let data = (history.state.state);
     this.regiForm.setValue({
       firstName: data.firstName,
       lastName: data.lastName,
       businessUnit: data.businessUnit,
       title: data.title,
       email: data.email,
-      phone: 
-        data.phone,
+      phone: data.phone,
       address1: data.address1,
       address2: data.address2,
       city: data.city, 

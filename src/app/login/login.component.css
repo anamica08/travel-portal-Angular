@@ -37,3 +37,8 @@ mat-card-title {
 .forgot-password {
     float: right;
 }
+
+.error {
+    color: red;
+    text-align: center;
+}
