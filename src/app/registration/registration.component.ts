@@ -66,10 +66,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.regiForm.value);
-    //this.state=this.regiForm.value;
-    // localStorage.setItem('form', JSON.stringify(this.regiForm.value));
-
     this.router.navigateByUrl('/confirm', { state: this.regiForm.value });
   }
 

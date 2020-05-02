@@ -20,9 +20,10 @@ import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.
 import {CoronaStatsService } from '../app/service/corona-stats.service';
 import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats-country.component';
 import { RegistrationComponent } from './registration/registration.component'
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+
 import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
+
 
   
 
@@ -51,7 +52,9 @@ import { TicketDetailsComponent } from './ticket-details/ticket-details.componen
     
     RegistrationConfirmationComponent,
     
-    TicketDetailsComponent
+    TicketDetailsComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

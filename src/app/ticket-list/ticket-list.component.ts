@@ -17,7 +17,7 @@ import {MatTableDataSource} from '@angular/material/table';
 
 
 export class TicketListComponent implements OnInit {
-tickets:Ticket[];
+tickets:[];
 
  displayedColumns: string[] = ['tickedId', 'requestType','priority', 'status', 'submitDate','actions'];
  dataSource ;
@@ -41,6 +41,7 @@ tickets:Ticket[];
   }
 onRowClicked(row){
   console.log(row);
+  this.router.navigateByUrl(`/ticket-detail/${row.tickedId}`, { state: row });
 }
 applyFilter(filterText:string){
   this.dataSource.filter = filterText.trim().toLowerCase();

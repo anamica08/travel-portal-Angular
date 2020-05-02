@@ -17,7 +17,7 @@ export class HttpclientService {
   }
 
   getAllTickets() {
-    return this.httpClient.get<Ticket[]>(`${this._baseUrl}/mytickets`);
+    return this.httpClient.get<[]>(`${this._baseUrl}/mytickets`);
   }
   
   getMailWithCredentials(email:string){
@@ -26,5 +26,10 @@ export class HttpclientService {
 
   register(userData){
     return this.httpClient.post<any>(`${this._baseUrl}/register`,userData)
+  }
+
+  getPdf(link){
+    return this.httpClient.get(link, {responseType: 'arraybuffer'})
+    
   }
 }

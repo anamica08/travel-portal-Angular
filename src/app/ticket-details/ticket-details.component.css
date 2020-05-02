@@ -1,0 +1,28 @@
+mat-grid-tile-header {
+    justify-content: space-between;
+    color: white;
+    font-size: 20px;
+}
+
+table {
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+mat-grid-tile {
+    background-color: whitesmoke;
+}
+
+#download {
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+    color: blue;
+    text-decoration: underline;
+}
+
+.form-button {
+    float: right;
+}

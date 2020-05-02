@@ -10,16 +10,26 @@ import { ForgotPasswordComponent } from '../app/forgot-password/forgot-password.
 import { CoronaStatsCountryComponent }from '../app/corona-stats-country/corona-stats-country.component'
 import { RegistrationComponent } from './registration/registration.component'
 import { RegistrationConfirmationComponent} from './registration-confirmation/registration-confirmation.component'
-
+import { TicketDetailsComponent} from './ticket-details/ticket-details.component'
 
 const routes: Routes = [
-  {path:"",component:LoginComponent}, 
-  {path:'register',component:RegistrationComponent},
-  { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
-  { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
-  {path:'forgotpassword',component:ForgotPasswordComponent},
   {path:'corona',component:CoronaStatsCountryComponent},
-  {path:'confirm',component:RegistrationConfirmationComponent },
+  {path:"",component:LoginComponent}, 
+  {path:'forgotpassword',component:ForgotPasswordComponent},
+  {
+    path:'register',component:RegistrationComponent,
+    children:[
+      {path:'confirm',component:RegistrationConfirmationComponent },
+    ]
+  },
+  { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
+  { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
+  {path:'ticket-detail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},
+  
+  
+  
+  
+  
 
 
 

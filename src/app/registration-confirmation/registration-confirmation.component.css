@@ -11,4 +11,5 @@ button {
 
 table {
     margin-left: 50px;
+    text-transform: capitalize;
 }
