@@ -63,7 +63,9 @@
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <input formControlName="city" matInput placeholder="City" required />
-
+                    <mat-error>
+                        <span *ngIf="regiForm.controls.city.errors?.required">This field is mandatory.</span>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <input formControlName="zip" matInput placeholder="Zip" required />
@@ -74,10 +76,10 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-select formControlName="state" placeholder="State" [(value)]="citySelected" required>
-                        <mat-option>-- Select Any --</mat-option>
-                        <mat-option value="1 ">1</mat-option>
-                        <mat-option value="2 ">1</mat-option>
-                        <mat-option value="3 ">3</mat-option>
+                        <mat-option *ngFor="let st of states" [value]="st.state">
+                            {{st.state}}
+                        </mat-option>
+
                     </mat-select>
                     <mat-error>
                         <span *ngIf="regiForm.controls.state.errors?.required">This field is mandatory.</span>
@@ -87,17 +89,16 @@
 
                 <mat-form-field class="put-space ">
                     <mat-select formControlName="country" placeholder="Country" [(value)]="countrySelected" required>
-                        <mat-option>-- Select Any --</mat-option>
-                        <mat-option value="1 ">1</mat-option>
-                        <mat-option value="2 ">2</mat-option>
-                        <mat-option value="3 ">3</mat-option>
+                        <mat-option *ngFor="let ct of countries" [value]="ct.country">
+                            {{ct.country}}
+                        </mat-option>
                     </mat-select>
                     <mat-error>
                         <span *ngIf="regiForm.controls.country.errors?.required">This field is mandatory.</span>
                     </mat-error>
                 </mat-form-field>
                 <br>
-                <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit(regiForm)" [disabled]="!regiForm.valid" color="accent">Submit</button>
+                <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit()" [disabled]="!regiForm.valid" color="accent">Submit</button>
 
             </div>
         </mat-grid-tile>
@@ -105,3 +106,5 @@
 
 
 </form>
+
+{{ regiForm.value | json}}

@@ -12,10 +12,12 @@ import { HttpclientService } from '../service/httpclient.service';
 })
 export class RegistrationConfirmationComponent implements OnInit {
   state$;
+  newUser=true;
   constructor(public router: Router, private _http: HttpclientService,) { }
 
   ngOnInit(): void {
     this.loadData();
+    
   }
   loadData(){
     this.state$ = history.state;
@@ -32,9 +34,12 @@ export class RegistrationConfirmationComponent implements OnInit {
     this._http.register(this.state$).subscribe(
       response=>{
         console.log("Success")
+        this.newUser = true;
         this.router.navigateByUrl('')
     },
-      error=>console.error("Error",error)
+      error=>{
+        this.newUser = false;
+      }
     );
     //console.log("final data",this.state$)
   }
