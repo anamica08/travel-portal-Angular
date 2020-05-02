@@ -16,13 +16,14 @@ import { LoginComponent } from './login/login.component';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AdminTicketListComponent } from './admin-ticket-list/admin-ticket-list.component'
+
 import {CoronaStatsService } from '../app/service/corona-stats.service';
 import { CoronaStatsCountryComponent } from './corona-stats-country/corona-stats-country.component';
 import { RegistrationComponent } from './registration/registration.component'
 
 import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 
 
   
@@ -44,7 +45,7 @@ import { TicketDetailsComponent } from './ticket-details/ticket-details.componen
     
     ForgotPasswordComponent,
     
-    AdminTicketListComponent,
+  
     
     CoronaStatsCountryComponent,
     
@@ -53,6 +54,8 @@ import { TicketDetailsComponent } from './ticket-details/ticket-details.componen
     RegistrationConfirmationComponent,
     
     TicketDetailsComponent,
+    
+    RaiseTicketComponent,
     
     
   ],

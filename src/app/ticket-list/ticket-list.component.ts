@@ -31,13 +31,23 @@ tickets:[];
   ) { }
 
   ngOnInit(): void {
-    this.httpClientService.getAllTickets().subscribe((response) => {
-      console.log(response);
-     this.tickets = response;
-     this.dataSource = new MatTableDataSource(response);
-     this.dataSource.sort = this.sort;
-     this.dataSource.paginator = this.paginator;
-    });
+    if(sessionStorage.getItem('username').localeCompare("admin@nagarro.com") == 0){
+      this.httpClientService.getAllTickets().subscribe((response) => {
+        console.log(response);
+       this.tickets = response;
+       this.dataSource = new MatTableDataSource(response);
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator;
+      });
+    }else{
+      this.httpClientService.getMyTickets().subscribe((response) => {
+        console.log(response);
+       this.tickets = response;
+       this.dataSource = new MatTableDataSource(response);
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator;
+      });
+    }
   }
 onRowClicked(row){
   console.log(row);

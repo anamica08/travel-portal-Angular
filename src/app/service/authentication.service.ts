@@ -10,6 +10,7 @@ import { error } from 'protractor';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  
   _baseURL:string = 'http://localhost:8080';
   constructor(
     private httpClient:HttpClient
@@ -32,12 +33,14 @@ export class AuthenticationService {
   
 
   isUserLoggedIn() {
-   // let user = sessionStorage.getItem('username');
+    let user = sessionStorage.getItem('username');
     let token = sessionStorage.getItem('token')
     //console.log(!(user === null))
     return !(token === null);
   }
-
+  isEmployee(){
+    return !(sessionStorage.getItem('username').localeCompare("admin@nagarro.com")==0);
+  }
   logOut() {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('token');

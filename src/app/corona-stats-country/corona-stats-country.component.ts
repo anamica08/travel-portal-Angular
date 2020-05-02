@@ -29,6 +29,7 @@ export class CoronaStatsCountryComponent implements OnInit {
         //console.log(res);
 
         let dates = res.map((res) => String(res.Date).substring(0, 10));
+        let uniquedates = [...new Set(dates)];
         // let activeCases = res.map(res=> this.activeCases(res.Confirmed,res.Deaths,res.Recovered) )
         let recovered = res.map((res) => res.Recovered);
         let deaths = res.map((res) => res.Deaths);

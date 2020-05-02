@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpclientService } from '../service/httpclient.service';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common'
 
 @Component({
   selector: 'app-ticket-details',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TicketDetailsComponent implements OnInit {
   ticket;
-  constructor(private httpClientService: HttpclientService, private router:Router) { }
+  constructor(private httpClientService: HttpclientService, private router:Router,private _location:Location) { }
 
   ngOnInit(): void {
     this.ticket = history.state;
@@ -33,6 +34,10 @@ export class TicketDetailsComponent implements OnInit {
       }
     )
       
+    }
+
+    onclick(){
+      this._location.back();
     }
 
   }

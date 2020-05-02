@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderComponent } from '../app/header/header.component';
 import { TicketListComponent } from '../app/ticket-list/ticket-list.component';
 import { PageNotFoundComponent } from '../app/page-not-found/page-not-found.component';
 import {LoginComponent} from '../app/login/login.component';
@@ -11,6 +10,13 @@ import { CoronaStatsCountryComponent }from '../app/corona-stats-country/corona-s
 import { RegistrationComponent } from './registration/registration.component'
 import { RegistrationConfirmationComponent} from './registration-confirmation/registration-confirmation.component'
 import { TicketDetailsComponent} from './ticket-details/ticket-details.component'
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component'
+
+
+
+
+
+
 
 const routes: Routes = [
   {path:'corona',component:CoronaStatsCountryComponent},
@@ -25,6 +31,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
   {path:'ticket-detail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},
+  {path:'raise-ticket', component:RaiseTicketComponent,canActivate:[AuthGaurdService]},
   
   
   

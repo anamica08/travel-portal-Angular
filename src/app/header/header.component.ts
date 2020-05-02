@@ -9,10 +9,10 @@ import { AuthenticationService } from '../service/authentication.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+ 
   constructor(public loginService:AuthenticationService) { }
 
   ngOnInit(): void {
+    
   }
-
 }
