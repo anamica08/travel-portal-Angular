@@ -2,10 +2,14 @@
     <mat-grid-tile class="tile1">
         <mat-grid-tile-header [style.background]="'#ff4081'">
             Ticket Details
-            <span>Ticket ID : {{ticket.tickedId}}</span>
+            <span id="date">Submitted on: {{ticket.submitDate}}</span>
         </mat-grid-tile-header>
         <table>
             <tbody>
+                <tr>
+                    <td>Ticket ID : </td>
+                    <td>{{ticket.tickedId}}</td>
+                </tr>
                 <tr>
                     <td>Status :</td>
                     <td>{{ticket.status}}</td>
@@ -42,7 +46,7 @@
     <mat-grid-tile class="tile2">
         <mat-grid-tile-header [style.background]="'#ff4081'">
             Travel from {{ticket.from}} to {{ticket.travelCity}}
-            <span id="date">Submitted on: {{ticket.submitDate}}</span>
+
         </mat-grid-tile-header>
         <table>
             <tbody>

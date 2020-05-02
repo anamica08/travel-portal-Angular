@@ -1,14 +1,17 @@
-<!-- <form class="normal-form" [formGroup]="regiForm">
+<!-- <form class="normal-form" [formGroup]="addTicketForm">
     <mat-grid-list cols="2" rowHeight="500px">
         <mat-grid-tile class="tile">
             <div class="controls-container">
-                <div class="mat-headline"> Register Yourself!</div>
-                <mat-form-field class="full-width">
-                    <input formControlName="firstName" matInput placeholder="First Name" required />
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.firstName.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
+                <div class="mat-headline"> Ticket Form</div>
+                <mat-form-field class=>
+                    <mat-label>Cars</mat-label>
+                    <select matNativeControl required>
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                  </mat-form-field>
 
                 <mat-form-field class="full-width">
                     <input formControlName="lastName" matInput placeholder="Last Name" required/>
@@ -98,7 +101,7 @@
                     </mat-error>
                 </mat-form-field>
                 <br>
-                <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit()" [disabled]="!regiForm.valid" color="accent">Submit</button>
+                <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit()" [disabled]="!addTicketForm.valid" color="accent">Submit</button>
 
             </div>
         </mat-grid-tile>

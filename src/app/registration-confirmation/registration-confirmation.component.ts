@@ -16,6 +16,9 @@ export class RegistrationConfirmationComponent implements OnInit {
   constructor(public router: Router, private _http: HttpclientService,) { }
 
   ngOnInit(): void {
+    if(!history.state.firstName){
+      this.router.navigateByUrl("/register")
+    }
     this.loadData();
     
   }

@@ -24,10 +24,11 @@ const routes: Routes = [
   {path:'forgotpassword',component:ForgotPasswordComponent},
   {
     path:'register',component:RegistrationComponent,
-    children:[
-      {path:'confirm',component:RegistrationConfirmationComponent },
-    ]
+    
+     
+    
   },
+  {path:'confirm',component:RegistrationConfirmationComponent },
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
   {path:'ticket-detail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},

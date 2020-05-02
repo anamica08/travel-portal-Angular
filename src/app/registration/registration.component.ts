@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent implements OnInit {
-  citySelected: string;
-  countrySelected: String;
+  
   emailRegx = '^[a-zA-Z0-9._%+-]+@nagarro.com$';
 
   constructor(
