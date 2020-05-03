@@ -1,111 +1,128 @@
-<!-- <form class="normal-form" [formGroup]="addTicketForm">
-    <mat-grid-list cols="2" rowHeight="500px">
-        <mat-grid-tile class="tile">
-            <div class="controls-container">
-                <div class="mat-headline"> Ticket Form</div>
-                <mat-form-field class=>
-                    <mat-label>Cars</mat-label>
-                    <select matNativeControl required>
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="mercedes">Mercedes</option>
-                      <option value="audi">Audi</option>
-                    </select>
-                  </mat-form-field>
+<!-- {{addTicketForm.value | json}} -->
 
-                <mat-form-field class="full-width">
-                    <input formControlName="lastName" matInput placeholder="Last Name" required/>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.lastName.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
+<div>
+    <form class="normal-form" [formGroup]="addTicketForm">
+        <mat-grid-list cols="2" rowHeight="500px">
+            <mat-grid-tile class="tile">
+                <mat-grid-tile-header class="mat-headline">Ticket Form</mat-grid-tile-header>
+                <div class="controls-container">
 
-                <mat-form-field class="full-width">
-                    <input formControlName="businessUnit" matInput placeholder="Business Unit" required />
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.businessUnit.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
+                    <!--Request Type-->
+                    <mat-form-field class="full-width">
+                        <mat-label>Request Type*</mat-label>
+                        <mat-select formControlName="requestType">
+                            <mat-option value="travelTicket">Travel Ticket</mat-option>
+                            <mat-option value="hotelStay">Hotel Stay</mat-option>
+                            <mat-option value="visa">Visa</mat-option>
+                            <mat-option value="workPermit">Work Permit</mat-option>
+                        </mat-select>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.requestType.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Priority-->
+                    <mat-form-field class="full-width">
+                        <mat-label>Priority*</mat-label>
+                        <mat-select formControlName="priority">
+                            <mat-option value="normal">Normal</mat-option>
+                            <mat-option value="urgent">Urgent</mat-option>
+                            <mat-option value="immediate">Immediate</mat-option>
+                        </mat-select>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.priority.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Travel from city-->
+                    <mat-form-field>
+                        <mat-select formControlName="from" placeholder="Travel From">
+                            <mat-option *ngFor="let ct of cities" [value]="ct.city">
+                                {{ ct.city }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.from.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Travel to City-->
+                    <mat-form-field class="put-space">
+                        <mat-select formControlName="travelCity" placeholder="Travel To">
+                            <mat-option *ngFor="let ct of cities" [value]="ct.city">
+                                {{ ct.city }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.travelCity.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Travel Start Date-->
+                    <mat-form-field>
+                        <mat-label>Travel Start Date*</mat-label>
+                        <input formControlName="startDate" matInput [min]="minDate" [matDatepicker]="picker" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.startDate.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Travel End Date-->
+                    <mat-form-field class="put-space">
+                        <mat-label>Travel End Date* </mat-label>
+                        <input formControlName="endDate" autocomplete="off" matInput [min]="minDate" [matDatepicker]="picker1" />
+                        <mat-hint>Put Tentative Date if Exact not known!</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.endDate.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Passport Number-->
+                    <mat-form-field class="full-width">
+                        <mat-label>Passport Number*</mat-label>
+                        <input formControlName="passportNumber" autocomplete="off" matInput>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.passportNumber.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Project Name-->
+                    <mat-form-field class="full-width">
+                        <input formControlName="projectName" autocomplete="off" matInput placeholder="Project Name*" />
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.projectName.errors?.required">This field is mandatory.</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="tile">
+                <mat-grid-tile-header class="mat-headline"></mat-grid-tile-header>
+                <div class="controls-container">
+                    <!--Expenses Borne By-->
+                    <mat-label>Expense Borned By*</mat-label>
+                    <mat-radio-group required class="put-space" formControlName="borneBy">
+                        <mat-radio-button value="Nagarro">Nagarro</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                        <mat-radio-button value="Client">Client</mat-radio-button>
+                    </mat-radio-group>
 
-                <mat-form-field class="full-width">
-                    <input formControlName="title" matInput placeholder="Title" required/>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.title.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input formControlName="email" matInput placeholder="Email Address" required/>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.email.errors?.required">This field is mandatory.</span>
-                        <span *ngIf="regiForm.controls.email.errors?.pattern">Please enter your official email address (eg: **@nagarro.com).</span>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input formControlName="phone" matInput placeholder="Phone Number" required>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.phone.errors?.required">This field is mandatory.</span>
-                        <span *ngIf="regiForm.controls.phone.errors?.maxlength">Phone Number cannot exceed 15 characters</span>
-                        <span *ngIf="regiForm.controls.phone.errors?.pattern">Phone Number should be numeric..</span>
-                    </mat-error>
-                    <mat-icon matSuffix>phone</mat-icon>
-                </mat-form-field>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile class="tile">
-            <div>
-
-                <mat-form-field class="full-width">
-                    <input formControlName="address1" matInput placeholder="Address1" required>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.address1.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input formControlName="address2" matInput placeholder="Address2" />
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input formControlName="city" matInput placeholder="City" required />
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.city.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input formControlName="zip" matInput placeholder="Zip" required />
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.zip.errors?.required">This field is mandatory.</span>
-                        <span *ngIf="regiForm.controls.zip.errors?.pattern">Zip should be numeric..</span>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-select formControlName="state" placeholder="State" [(value)]="citySelected" required>
-                        <mat-option *ngFor="let st of states" [value]="st.state">
-                            {{st.state}}
-                        </mat-option>
-
-                    </mat-select>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.state.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
-
-
-                <mat-form-field class="put-space ">
-                    <mat-select formControlName="country" placeholder="Country" [(value)]="countrySelected" required>
-                        <mat-option *ngFor="let ct of countries" [value]="ct.country">
-                            {{ct.country}}
-                        </mat-option>
-                    </mat-select>
-                    <mat-error>
-                        <span *ngIf="regiForm.controls.country.errors?.required">This field is mandatory.</span>
-                    </mat-error>
-                </mat-form-field>
-                <br>
-                <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit()" [disabled]="!addTicketForm.valid" color="accent">Submit</button>
-
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-
-</form> -->
+                    <!--Trave Aprroved By-->
+                    <mat-form-field class="full-width">
+                        <input formControlName="approver" autocomplete="off" matInput placeholder="Travel Apporved By" />
+                    </mat-form-field>
+                    <!--Expected duration-->
+                    <mat-form-field class="full-width">
+                        <input formControlName="expectedDuration" autocomplete="off" matInput placeholder="Expected Duration of Travel - In case exact return Date is not known " />
+                    </mat-form-field>
+                    <!--Allowed Amount-->
+                    <mat-form-field class="full-width">
+                        <input formControlName="allowedAmount" autocomplete="off" matInput placeholder="Any Upper Bound on the allowed amount? If yes Specify" />
+                    </mat-form-field>
+                    <!--Extra details-->
+                    <mat-form-field class="full-width">
+                        <textarea formControlName="extraDetails" autocomplete="off" rows="4" cols="50" matInput placeholder="Any Additional Details"></textarea>
+                    </mat-form-field>
+                    <br>
+                    <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit()" [disabled]="!addTicketForm.valid" color="primary">Submit</button>
+                    <button type="reset" mat-raised-button class="form-button" color="warn">Reset</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>

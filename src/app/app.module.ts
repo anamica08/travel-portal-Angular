@@ -24,6 +24,7 @@ import { RegistrationComponent } from './registration/registration.component'
 import { RegistrationConfirmationComponent } from './registration-confirmation/registration-confirmation.component';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
   
@@ -74,8 +75,10 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 
     provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true ,
     
+    
   },
   CoronaStatsService,
+ 
   
   ],
   bootstrap: [AppComponent]

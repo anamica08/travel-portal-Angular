@@ -31,8 +31,8 @@ const routes: Routes = [
   {path:'confirm',component:RegistrationConfirmationComponent },
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
-  {path:'ticket-detail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},
-  {path:'raise-ticket', component:RaiseTicketComponent,canActivate:[AuthGaurdService]},
+  {path:'ticketDetail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},
+  {path:'raiseTicket', component:RaiseTicketComponent,canActivate:[AuthGaurdService]},
   
   
   

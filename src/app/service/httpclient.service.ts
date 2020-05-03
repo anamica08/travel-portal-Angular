@@ -36,4 +36,8 @@ export class HttpclientService {
   getMyTickets(){
     return this.httpClient.get<[]>(`${this._baseUrl}/mytickets`);
   }
+
+  raiseTicket(ticketData){
+    return this.httpClient.post<any>(`${this._baseUrl}/raiseticket`,ticketData)
+  }
 }

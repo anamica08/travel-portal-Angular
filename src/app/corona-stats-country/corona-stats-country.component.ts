@@ -39,7 +39,7 @@ export class CoronaStatsCountryComponent implements OnInit {
         this.chart = new Chart('canvas', {
           type: 'line',
           data: {
-            labels: dates,
+            labels: uniquedates,
             datasets: [
               {
                 data: deaths,
@@ -116,7 +116,7 @@ export class CoronaStatsCountryComponent implements OnInit {
       month = '0'.concat(mm.toString());
     }
     let todayDate = yyyy + '-' + month + '-' + date + 'T00:00:00Z';
-    console.log(todayDate);
+    
     return todayDate;
   }
 
@@ -125,7 +125,7 @@ export class CoronaStatsCountryComponent implements OnInit {
     date.setDate(date.getDate() - 30);
     var dateString = date.toISOString().split('T')[0];
     var pDate = dateString + 'T00:00:00Z';
-    console.log(pDate);
+    
     return pDate;
   }
 }
