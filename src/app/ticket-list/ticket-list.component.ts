@@ -51,7 +51,7 @@ tickets:[];
   }
 onRowClicked(row){
   console.log(row);
-  this.router.navigateByUrl(`/ticketDetail/${row.tickedId}`, { state: row });
+  this.router.navigateByUrl(`/ticketDetail/${row.ticketId}`, { state: row });
 }
 applyFilter(filterText:string){
   this.dataSource.filter = filterText.trim().toLowerCase();

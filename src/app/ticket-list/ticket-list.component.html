@@ -8,7 +8,7 @@
 
         <ng-container matColumnDef="tickedId">
             <mat-header-cell mat-sort-header *matHeaderCellDef> Ticket Number </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.tickedId}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.ticketId}} </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
@@ -36,7 +36,7 @@
         <!--Edit button-->
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-            <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn">View Details</button></mat-cell>
+            <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn">View or Edit</button></mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

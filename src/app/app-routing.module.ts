@@ -11,7 +11,8 @@ import { RegistrationComponent } from './registration/registration.component'
 import { RegistrationConfirmationComponent} from './registration-confirmation/registration-confirmation.component'
 import { TicketDetailsComponent} from './ticket-details/ticket-details.component'
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component'
-
+import {  TicketConfirmationComponent } from './ticket-confirmation/ticket-confirmation.component'
+import { EditTicketComponent } from './edit-ticket/edit-ticket.component'
 
 
 
@@ -23,16 +24,16 @@ const routes: Routes = [
   {path:"",component:LoginComponent}, 
   {path:'forgotpassword',component:ForgotPasswordComponent},
   {
-    path:'register',component:RegistrationComponent,
-    
-     
-    
+    path:'register',component:RegistrationComponent, 
   },
   {path:'confirm',component:RegistrationConfirmationComponent },
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
   { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
   {path:'ticketDetail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},
+  {path:'editTicket',component:EditTicketComponent},
   {path:'raiseTicket', component:RaiseTicketComponent,canActivate:[AuthGaurdService]},
+  {path:'confirmTicket',component: TicketConfirmationComponent},
+  
   
   
   

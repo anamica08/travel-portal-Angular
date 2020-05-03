@@ -16,10 +16,10 @@ export class TicketDetailsComponent implements OnInit {
     this.ticket = history.state;
     //case when user tries to visit this 
     //component other than ticket component it will be redirected to page not found.
-    if(!history.state.tickedId){
+    if(!history.state.ticketId){
       this.router.navigateByUrl(" ")
     }
-    console.log(this.ticket)
+  
   }
 
   download(){

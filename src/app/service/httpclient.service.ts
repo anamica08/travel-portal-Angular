@@ -40,4 +40,8 @@ export class HttpclientService {
   raiseTicket(ticketData){
     return this.httpClient.post<any>(`${this._baseUrl}/raiseticket`,ticketData)
   }
+
+  editTicket(ticketData){
+    return this.httpClient.post<any>(`${this._baseUrl}/raiseticket`,ticketData)
+  }
 }
