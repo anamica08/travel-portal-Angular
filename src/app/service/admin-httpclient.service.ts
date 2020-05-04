@@ -20,17 +20,18 @@ export class AdminHttpclientService {
     return this.httpClient.get<[]>(`${this._baseUrl}/admin/ticket`);
   }
   
-  addTicketDetails(){
+  uploadFormDetails(formData:FormData){
     //form data
+    return this.httpClient.post<any>(`${this._baseUrl}/admin/ticket/update`,formData);
   }
 
   getPdf(link){
-    return this.httpClient.get(link, {responseType: 'arraybuffer'})
+    return this.httpClient.get(link, {responseType: 'arraybuffer'});
     
   }
 
   getTicketById(id:number){
-    return this.httpClient.get<any>(`${this._baseUrl}/admin/ticket/${id}`)
+    return this.httpClient.get<any>(`${this._baseUrl}/admin/ticket/${id}`);
   }
 }
 

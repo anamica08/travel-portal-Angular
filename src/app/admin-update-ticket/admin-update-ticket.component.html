@@ -1,4 +1,4 @@
-{{historyState | json}}
+<!-- {{historyState | json}} -->
 
 
 <mat-grid-list cols="2" rowHeight="240px">
@@ -37,7 +37,7 @@
 
     <mat-grid-tile>
         <div class="container">
-            <form [formGroup]="updateTicketForm">
+            <form [formGroup]="updateTicketForm" (ngSubmit)="submit()">
                 <mat-form-field class="full-width">
                     <mat-label>Status</mat-label>
                     <mat-select formControlName="status">
@@ -55,12 +55,14 @@
                         <span *ngIf="addTicketForm.controls.passportNumber.errors?.required">This field is mandatory.</span>
                     </mat-error> -->
                 </mat-form-field>
-                <div class="upload-btn-wrapper">
-                    <button class="btn">Upload a file</button>
-                    <input type="file" name="myfile" formControlName="files" />
-                    <button class="form-button" mat-raised-button mat-button color="warn" (click)="submit()">Submit Details</button>
-                    <button class="form-button-back" mat-raised-button mat-button color="primary" (click)="back()">Back</button>
+                <div>
+                    <label for="file">File</label>
+                    <input id="files" type="file" (change)="onFileChange($event)">
                 </div>
+                <button class="form-button" mat-raised-button mat-button color="warn" (click)="submit()">Submit Details</button>
+                <button class="form-button-back" mat-raised-button mat-button color="primary" (click)="back()">Back</button>
+
+
             </form>
 
         </div>

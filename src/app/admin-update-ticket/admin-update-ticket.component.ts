@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common'
+import {Location, formatDate} from '@angular/common'
 import {Router} from '@angular/router'
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { AdminHttpclientService } from '../service/admin-httpclient.service';
-
+import { Model} from '../model/model'
 
 
 @Component({
@@ -14,6 +14,8 @@ import { AdminHttpclientService } from '../service/admin-httpclient.service';
 export class AdminUpdateTicketComponent implements OnInit {
   historyState;
   
+  fileList;
+  updateTicketForm;
   constructor(
     private _loc:Location,
     private _router:Router,
@@ -22,17 +24,18 @@ export class AdminUpdateTicketComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-this.historyState = history.state.state;
-    
-    
+  this.historyState = history.state.state;
+  this.updateTicketForm = new FormGroup({
+    status:new FormControl('',Validators.required),
+    remarks:new FormControl(history.state.state.remarks),
+    ticketId:new FormControl(history.state.state.ticketId)
+  });
   }
   
-    updateTicketForm = this.fb.group({
-      status:["In Process"],
-      remarks:[''],
-      files:[''],
-    });
-  
+  onFileChange(event) {
+  this.fileList = event.target.files;
+    
+  } 
  
 
 
@@ -41,7 +44,47 @@ this.historyState = history.state.state;
   }
   
   submit(){
+    if (this.fileList.length > 0) {
+      const file = this.fileList[0];
+      let formData:FormData = new FormData();
 
+      formData.append('file', file,file.name);
+      formData.append('ticket',new Blob([JSON.stringify(this.updateTicketForm.value)],
+      {
+          type: "application/json"
+      }));
+      console.log(file.size);
+     console.log(formData.getAll("file"));
+     console.log(formData.get('ticket'))
+     
+      this._http.uploadFormDetails(formData).subscribe(
+        response=>{
+         alert("File uploaded.")
+         
+      },
+        error=>{
+          console.log(error);
+          
+        }
+      );
+    }else{
+      let formData:FormData = new FormData();
+      formData.append('ticket',new Blob([JSON.stringify(this.updateTicketForm.value)],
+      {
+          type: "application/json"
+      }));
+      this._http.uploadFormDetails(formData).subscribe(
+        response=>{
+         alert("File uploaded.")
+         
+      },
+        error=>{
+          console.log(error);
+          
+        }
+      );
+    } 
+  
   }
 
 
