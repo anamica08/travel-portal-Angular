@@ -14,7 +14,7 @@ import { Model} from '../model/model'
 export class AdminUpdateTicketComponent implements OnInit {
   historyState;
   
-  fileList;
+  _file;
   updateTicketForm;
   constructor(
     private _loc:Location,
@@ -25,6 +25,9 @@ export class AdminUpdateTicketComponent implements OnInit {
 
   ngOnInit(): void {
   this.historyState = history.state.state;
+  if(history.state.state == null){
+    this._loc.back();
+  }
   this.updateTicketForm = new FormGroup({
     status:new FormControl('',Validators.required),
     remarks:new FormControl(history.state.state.remarks),
@@ -33,8 +36,7 @@ export class AdminUpdateTicketComponent implements OnInit {
   }
   
   onFileChange(event) {
-  this.fileList = event.target.files;
-    
+  this._file = event.target.files; 
   } 
  
 
@@ -44,39 +46,38 @@ export class AdminUpdateTicketComponent implements OnInit {
   }
   
   submit(){
-    if (this.fileList.length > 0) {
-      const file = this.fileList[0];
+    if(this._file != null){
+      if (this._file.length > 0 ) { //by pass tihs line to only update status not upload file
+        const file = this._file[0];
+        let formData:FormData = new FormData();
+        
+        console.log(this._file == null)
+        formData.append('file', file,file.name);
+        formData.append('ticket',new Blob([JSON.stringify(this.updateTicketForm.value)],
+        {
+            type: "application/json"
+        }));
+        this._http.uploadFormDetails(formData).subscribe(
+          response=>{
+           alert("Changes Updated Succesfully.");
+           this._loc.back();
+        },
+          error=>{
+            console.log(error); 
+          }
+        );
+      }
+    }
+    else{
       let formData:FormData = new FormData();
-
-      formData.append('file', file,file.name);
       formData.append('ticket',new Blob([JSON.stringify(this.updateTicketForm.value)],
       {
           type: "application/json"
       }));
-      console.log(file.size);
-     console.log(formData.getAll("file"));
-     console.log(formData.get('ticket'))
-     
       this._http.uploadFormDetails(formData).subscribe(
         response=>{
-         alert("File uploaded.")
-         
-      },
-        error=>{
-          console.log(error);
-          
-        }
-      );
-    }else{
-      let formData:FormData = new FormData();
-      formData.append('ticket',new Blob([JSON.stringify(this.updateTicketForm.value)],
-      {
-          type: "application/json"
-      }));
-      this._http.uploadFormDetails(formData).subscribe(
-        response=>{
-         alert("File uploaded.")
-         
+         alert("Changes Updated Succesfully")
+         this._loc.back();
       },
         error=>{
           console.log(error);
