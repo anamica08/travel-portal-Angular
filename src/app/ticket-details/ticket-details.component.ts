@@ -3,6 +3,7 @@ import { HttpclientService } from '../service/httpclient.service';
 import { Router, ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common'
 import{AdminHttpclientService } from '../service/admin-httpclient.service'
+import { Ticket } from '../model/ticket';
 
 @Component({
   selector: 'app-ticket-details',
@@ -10,7 +11,7 @@ import{AdminHttpclientService } from '../service/admin-httpclient.service'
   styleUrls: ['./ticket-details.component.css']
 })
 export class TicketDetailsComponent implements OnInit {
-  ticket = null;
+  ticket;
   isAdmin:boolean;
   constructor(
     private httpClientService: HttpclientService, 

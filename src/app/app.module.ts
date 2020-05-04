@@ -27,6 +27,7 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { TicketConfirmationComponent } from './ticket-confirmation/ticket-confirmation.component';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
+import { AdminUpdateTicketComponent } from './admin-update-ticket/admin-update-ticket.component';
 
 
 
@@ -64,6 +65,8 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
     TicketConfirmationComponent,
     
     EditTicketComponent,
+    
+    AdminUpdateTicketComponent,
     
    
     

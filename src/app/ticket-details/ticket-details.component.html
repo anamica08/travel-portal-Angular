@@ -1,6 +1,6 @@
 <mat-grid-list cols="2" rowHeight="507px">
     <mat-grid-tile class="tile1">
-        <mat-grid-tile-header [style.background]="'#ff4081'">
+        <mat-grid-tile-header [style.background]="''">
             Ticket Details
             <span id="date">Submitted on: {{ticket.submitDate}}</span>
         </mat-grid-tile-header>
@@ -48,7 +48,7 @@
         </table>
     </mat-grid-tile>
     <mat-grid-tile class="tile2">
-        <mat-grid-tile-header [style.background]="'#ff4081'">
+        <mat-grid-tile-header [style.background]="''">
             Travel from {{ticket.from}} to {{ticket.travelCity}}
 
         </mat-grid-tile-header>
@@ -84,7 +84,8 @@
                 </tr>
                 <tr>
                     <button type="button" (click)="onclick()" mat-raised-button class="form-button put-space" color="warn">Back</button>
-                    <button type="button" [disabled]="ticket.status==='InProcess' || ticket.status==='Done'" routerLink="/editTicket" [state]="{state:ticket}" mat-raised-button class="form-button" color="warn">Edit</button>
+                    <button type="button" *ngIf="!isAdmin" [disabled]="ticket.status==='InProcess' || ticket.status==='Done'" routerLink="/editTicket" [state]="{state:ticket}" mat-raised-button class="form-button" color="warn">Edit</button>
+                    <button type="button" *ngIf="isAdmin" [disabled]="ticket.status==='Done'" routerLink="/admin/update" [state]="{state:ticket}" mat-raised-button class="form-button" color="warn">Edit</button>
                 </tr>
             </tbody>
         </table>

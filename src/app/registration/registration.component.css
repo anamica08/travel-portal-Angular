@@ -27,3 +27,7 @@ form .normal-form {
 .put-space {
     margin-left: 20px
 }
+
+mat-grid-list {
+    text-transform: capitalize;
+}

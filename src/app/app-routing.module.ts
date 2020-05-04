@@ -13,6 +13,7 @@ import { TicketDetailsComponent} from './ticket-details/ticket-details.component
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component'
 import {  TicketConfirmationComponent } from './ticket-confirmation/ticket-confirmation.component'
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component'
+import { AdminUpdateTicketComponent } from './admin-update-ticket/admin-update-ticket.component';
 
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'ticket', component: TicketListComponent ,canActivate:[AuthGaurdService]},
   {path:'ticketDetail/:id',component:TicketDetailsComponent,canActivate:[AuthGaurdService]},
   {path:'editTicket',component:EditTicketComponent},
+  {path:'admin/update',component:AdminUpdateTicketComponent},
   {path:'raiseTicket', component:RaiseTicketComponent,canActivate:[AuthGaurdService]},
   {path:'confirmTicket',component: TicketConfirmationComponent},
   
