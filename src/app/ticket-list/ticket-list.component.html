@@ -12,15 +12,20 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="requestType">
-            <mat-header-cell mat-sort-header *matHeaderCellDef> Request Type </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.requestType}} </mat-cell>
+        <ng-container matColumnDef="from">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Travel from </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.from}} </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="priority">
             <mat-header-cell mat-sort-header *matHeaderCellDef> Priority </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.priority}} </mat-cell>
+        </ng-container>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="travelCity">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Travel to</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.travelCity}} </mat-cell>
         </ng-container>
 
         <!-- Symbol Column -->

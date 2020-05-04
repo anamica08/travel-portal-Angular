@@ -45,6 +45,7 @@ export class EditTicketComponent implements OnInit {
   }
   
   populateForm() {
+    this.oldData = history.state.state;
     console.log(this.oldData,"populateform")
     this.editTicketForm = this.fb.group({
       ticketId:[this.oldData.ticketId],
@@ -63,6 +64,9 @@ export class EditTicketComponent implements OnInit {
       extraDetails: [this.oldData.expectedDuration, Validators.maxLength(1000)],
       submitDate:[new Date()],
       status:['Resubmitted'],
+      remarks:[this.oldData.remarks],
+      downloadLink:[this.oldData.downloadLink],
+      files:[this.oldData.files]
 
     });
   }

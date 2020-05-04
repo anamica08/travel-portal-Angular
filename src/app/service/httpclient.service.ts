@@ -42,6 +42,10 @@ export class HttpclientService {
   }
 
   editTicket(ticketData){
-    return this.httpClient.post<any>(`${this._baseUrl}/raiseticket`,ticketData)
+    return this.httpClient.put<any>(`${this._baseUrl}/editTicket`,ticketData)
+  }
+
+  getTicketById(id:number){
+    return this.httpClient.get<any>(`${this._baseUrl}/ticket/${id}`)
   }
 }

@@ -68,7 +68,7 @@
                 </tr>
                 <tr>
                     <td>Any Additional Details :</td>
-                    <td>{{ticket.extraDetail}}</td>
+                    <td>{{ticket.extraDetails}}</td>
                 </tr>
                 <tr>
                     <td>Files Added By Admin :</td>
@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                     <button type="button" (click)="onclick()" mat-raised-button class="form-button put-space" color="warn">Back</button>
-                    <button type="button" [disabled]="ticket.status === 'InProcess'" routerLink="/editTicket" [state]="{state:ticket}" mat-raised-button class="form-button" color="warn">Edit</button>
+                    <button type="button" [disabled]="ticket.status==='InProcess'" routerLink="/editTicket" [state]="{state:ticket}" mat-raised-button class="form-button" color="warn">Edit</button>
                 </tr>
             </tbody>
         </table>

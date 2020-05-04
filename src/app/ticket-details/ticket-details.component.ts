@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpclientService } from '../service/httpclient.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common'
 
 @Component({
@@ -10,18 +10,21 @@ import {Location} from '@angular/common'
 })
 export class TicketDetailsComponent implements OnInit {
   ticket;
-  constructor(private httpClientService: HttpclientService, private router:Router,private _location:Location) { }
+  constructor(
+    private httpClientService: HttpclientService, 
+    private router:Router,
+    private _location:Location,
+    private _actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.ticket = history.state;
-    //case when user tries to visit this 
-    //component other than ticket component it will be redirected to page not found.
-    if(!history.state.ticketId){
-      this.router.navigateByUrl(" ")
-    }
-  
+   this.getTicket();
   }
 
+  getTicket():void{
+    const id= +this._actRoute.snapshot.paramMap.get('id');
+    this.httpClientService.getTicketById(id)
+    .subscribe(response=>this.ticket=response)
+  }
   download(){
     console.log("Download file",this.ticket.downloadLink);
     this.httpClientService.getPdf(this.ticket.downloadLink).subscribe(
