@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Ticket } from '../model/ticket';
 import { HttpclientService } from '../service/httpclient.service';
 import { Router } from '@angular/router';
 import {ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import{AdminHttpclientService} from '../service/admin-httpclient.service'
 
 
 @Component({
@@ -26,13 +26,15 @@ tickets:[];
 @ViewChild(MatPaginator) paginator:MatPaginator;
 
  constructor(
-    private httpClientService: HttpclientService, private router:Router
+    private httpClientService: HttpclientService,
+     private router:Router,
+     private adminHttpClientService:AdminHttpclientService
 
   ) { }
 
   ngOnInit(): void {
     if(sessionStorage.getItem('username').localeCompare("admin@nagarro.com") == 0){
-      this.httpClientService.getAllTickets().subscribe((response) => {
+      this.adminHttpClientService.getAllTickets().subscribe((response) => {
         console.log(response);
        this.tickets = response;
        this.dataSource = new MatTableDataSource(response);
@@ -56,6 +58,5 @@ onRowClicked(row){
 applyFilter(filterText:string){
   this.dataSource.filter = filterText.trim().toLowerCase();
 }
-  
 
 }
