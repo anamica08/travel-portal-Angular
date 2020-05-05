@@ -13,6 +13,8 @@ import { Ticket } from '../model/ticket';
 export class TicketDetailsComponent implements OnInit {
   ticket;
   isAdmin: boolean;
+  isDataAvailable: boolean = false;
+
   constructor(
     private httpClientService: HttpclientService,
     private _location: Location,
@@ -21,33 +23,51 @@ export class TicketDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('ticket detail loading');
+    //if user is admin then do a different http request.
     if (
       sessionStorage.getItem('username').localeCompare('admin@nagarro.com') == 0
     ) {
-      this.isAdmin = true;
-      const id = +this._actRoute.snapshot.paramMap.get('id');
-      this.adminHttp.getTicketById(id).subscribe((res) => {
-        this.ticket = res;
-        console.log(this.ticket);
-      });
-    } else {
-      this.isAdmin = false;
-      const id = +this._actRoute.snapshot.paramMap.get('id');
-      this.httpClientService
-        .getTicketById(id)
-        .subscribe((response) => (this.ticket = response));
+      this.getTicketIfAdmin();
+      // this.isAdmin = true;
+      // const id = +this._actRoute.snapshot.paramMap.get('id');
+      // this.adminHttp.getTicketById(id).subscribe((res) => {
+      //   this.ticket = res;
+      //   console.log(this.ticket);
+      // });
+    }
+    //if user is employee then this http request , because on server
+    // a employee is restricted to load only a ticket related to him
+    else {
+      this.getTicket();
+      // this.isAdmin = false;
+      // const id = +this._actRoute.snapshot.paramMap.get('id');
+      // this.httpClientService
+      //   .getTicketById(id)
+      //   .subscribe((response) => (this.ticket = response));
     }
   }
 
-  // getTicket():void{
+  getTicket(): void {
+    this.isAdmin = false;
+    const id = +this._actRoute.snapshot.paramMap.get('id');
+    this.httpClientService.getTicketById(id).subscribe((response) => {
+      this.ticket = response;
+      this.isDataAvailable = true;
+    });
+  }
 
-  // }
+  getTicketIfAdmin(): void {
+    this.isAdmin = true;
+    const id = +this._actRoute.snapshot.paramMap.get('id');
+    this.adminHttp.getTicketById(id).subscribe((res) => {
+      this.ticket = res;
+      this.isDataAvailable = true;
+      console.log(this.ticket);
+    });
+  }
 
-  // getTicketIfAdmin():void{
-
-  // }
-  download():void {
+  //download file uploaded by admin.
+  download(): void {
     console.log('Download file', this.ticket.downloadLink);
     this.httpClientService.getPdf(this.ticket.downloadLink).subscribe(
       (data) => {

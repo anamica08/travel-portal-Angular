@@ -4,6 +4,7 @@
 <mat-grid-list cols="2" rowHeight="240px">
     <!--Details tile-->
     <mat-grid-tile>
+        <mat-grid-tile-header>Process Request</mat-grid-tile-header>
         <div class="container">
             <mat-list>
                 <mat-list-item>Ticket Id : {{historyState.ticketId}}</mat-list-item>
@@ -14,6 +15,7 @@
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
+        <mat-grid-tile-header></mat-grid-tile-header>
         <div class="container">
             <mat-list>
                 <mat-list-item>Travel Request from {{historyState.from}} to {{historyState.travelCity}}</mat-list-item>
@@ -37,7 +39,7 @@
 
     <mat-grid-tile>
         <div class="container">
-            <form [formGroup]="updateTicketForm" (ngSubmit)="submit()">
+            <form [formGroup]="updateTicketForm">
                 <mat-form-field class="full-width">
                     <mat-label>Status</mat-label>
                     <mat-select formControlName="status">
@@ -59,7 +61,7 @@
                     <label for="file">File</label>
                     <input id="files" type="file" (change)="onFileChange($event)">
                 </div>
-                <button class="form-button" mat-raised-button mat-button color="warn">Submit Details</button>
+                <button class="form-button" mat-raised-button mat-button color="warn" (click)="submit()">Submit Details</button>
                 <button class="form-button-back" mat-raised-button mat-button color="primary" (click)="back()">Back</button>
 
 

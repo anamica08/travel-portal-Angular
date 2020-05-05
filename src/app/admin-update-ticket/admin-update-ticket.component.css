@@ -1,5 +1,10 @@
 mat-grid-tile {
-    background-color: rgb(236, 229, 229);
+    background-color: whitesmoke;
+}
+
+mat-grid-tile-header {
+    height: 30px !important;
+    font-size: 20px;
 }
 
 .container {
