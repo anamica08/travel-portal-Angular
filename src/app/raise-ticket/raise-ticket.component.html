@@ -105,18 +105,32 @@
                     <!--Trave Aprroved By-->
                     <mat-form-field class="full-width">
                         <input formControlName="approver" autocomplete="off" matInput placeholder="Travel Apporved By" />
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.approver.errors?.maxlength">This feild can not have more 100 characters.</span>
+                        </mat-error>
                     </mat-form-field>
                     <!--Expected duration-->
                     <mat-form-field class="full-width">
                         <input formControlName="expectedDuration" autocomplete="off" matInput placeholder="Expected Duration of Travel - In case exact return Date is not known " />
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.expectedDuration.errors?.maxlength">This feild can not have more 100 characters.</span>
+                        </mat-error>
                     </mat-form-field>
+
                     <!--Allowed Amount-->
                     <mat-form-field class="full-width">
                         <input formControlName="allowedAmount" autocomplete="off" matInput placeholder="Any Upper Bound on the allowed amount? If yes Specify" />
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.allowedAmount.errors?.maxlength">This feild can not have more 500 characters.</span>
+                        </mat-error>
                     </mat-form-field>
+
                     <!--Extra details-->
                     <mat-form-field class="full-width">
                         <textarea formControlName="extraDetails" autocomplete="off" rows="4" cols="50" matInput placeholder="Any Additional Details"></textarea>
+                        <mat-error>
+                            <span *ngIf="addTicketForm.controls.extraDetails.errors?.maxlength">This feild can not have more 1000 characters.</span>
+                        </mat-error>
                     </mat-form-field>
                     <br>
                     <button type="button" mat-raised-button class="form-button" (click)="onFormSubmit()" [disabled]="!addTicketForm.valid" color="primary">Submit</button>

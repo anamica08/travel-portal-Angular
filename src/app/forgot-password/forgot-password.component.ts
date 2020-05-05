@@ -20,6 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
   receiveMail(){
     if(this.email != ''){
       this.httpClientService.getMailWithCredentials(this.email).subscribe((response)=>{
+        alert("Mail has been sent with credentials")
       })
     }else{
       alert("Enter Username to Receive credentials.")
