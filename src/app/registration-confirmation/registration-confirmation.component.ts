@@ -24,12 +24,9 @@ export class RegistrationConfirmationComponent implements OnInit {
   }
   loadData(){
     this.state$ = history.state;
-
-    console.log("confirmation",this.state$)
   }
 
   onEdit(){
-    console.log("clicked")
     history.back();
   }
 
