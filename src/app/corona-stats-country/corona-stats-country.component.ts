@@ -8,7 +8,7 @@ import { Chart } from 'chart.js';
   styleUrls: ['./corona-stats-country.component.css'],
 })
 export class CoronaStatsCountryComponent implements OnInit {
-  //list:any[];
+  
   @ViewChild('myCanvas') myCanvas: ElementRef;
   public context: CanvasRenderingContext2D;
 
@@ -17,16 +17,14 @@ export class CoronaStatsCountryComponent implements OnInit {
   constructor(private _service: CoronaStatsService) {}
 
   ngOnInit(): void {}
-  // ngAfterViewInit() {
-  //   this.drawGraph();
-  // }
+  
 
   drawGraph(): void {
-    //this.myCanvas.nativeElement.remove();
+    
     this._service
       .getStats(this.formatCountry(), this.priorDate(), this.todaysDate())
       .subscribe((res) => {
-        //console.log(res);
+       
 
         let dates = res.map((res) => String(res.Date).substring(0, 10));
         let uniquedates = [...new Set(dates)];
@@ -34,8 +32,7 @@ export class CoronaStatsCountryComponent implements OnInit {
         let recovered = res.map((res) => res.Recovered);
         let deaths = res.map((res) => res.Deaths);
         let confirmed = res.map((res) => res.Confirmed);
-        // console.log(dates,activeCases)
-         
+        
         this.chart = new Chart('canvas', {
           type: 'line',
           data: {

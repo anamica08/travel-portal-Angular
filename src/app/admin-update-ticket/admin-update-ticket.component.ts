@@ -52,9 +52,10 @@ export class AdminUpdateTicketComponent implements OnInit {
   }
 
   submit() {
+
+    //if a file is uploaded.
     if (this._file != null) {
       if (this._file.length > 0) {
-        //by pass tihs line to only update status not upload file
         const file = this._file[0];
         let formData: FormData = new FormData();
         formData.append('file', file, file.name);
@@ -75,6 +76,7 @@ export class AdminUpdateTicketComponent implements OnInit {
         );
       }
     } else {
+      //if no file uploaded.
       let formData: FormData = new FormData();
       formData.append(
         'ticket',

@@ -26,13 +26,10 @@ export class EditTicketComponent implements OnInit {
       this.router.navigateByUrl("/ticket")
     }
     this.oldData = history.state.state;
-    console.log(this.oldData,"ngonit")
     this.populateForm();
   }
 
   onFormSubmit(){
-
-    console.log(this.editTicketForm.value)
     this._http.editTicket(this.editTicketForm.value).subscribe(
       response=>{
        alert("Thank You! Your Ticket has been Edited Succesfully! We will start working on it soon.")
@@ -46,7 +43,6 @@ export class EditTicketComponent implements OnInit {
   
   populateForm() {
     this.oldData = history.state.state;
-    console.log(this.oldData,"populateform")
     this.editTicketForm = this.fb.group({
       ticketId:[this.oldData.ticketId],
       requestType: [this.oldData.requestType, Validators.required],
