@@ -80,8 +80,10 @@ export class CoronaStatsCountryComponent implements OnInit {
         });
       });
 
-
-      this.chart.destroy();
+      if(this.chart != null){
+        this.chart.destroy();
+      }
+     
   }
   formatCountry() {
     let fcountry = '';

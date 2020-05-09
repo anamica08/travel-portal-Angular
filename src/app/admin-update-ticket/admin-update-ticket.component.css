@@ -50,3 +50,7 @@ mat-grid-tile-header {
 .form-button {
     margin-left: 90px;
 }
+
+small{
+    color: red;
+}

@@ -35,16 +35,19 @@ export class AdminUpdateTicketComponent implements OnInit {
     }
     if(this.isDataAvailable == true){
       this.updateTicketForm = new FormGroup({
-        status: new FormControl(history.state.state.status),
-        remarks: new FormControl(history.state.state.remarks),
-        ticketId: new FormControl(history.state.state.ticketId),
+        status: new FormControl( this.historyState.status),
+        remarks: new FormControl( this.historyState.remarks),
+        ticketId: new FormControl( this.historyState.ticketId),
       });
     }
    
   }
 
   onFileChange(event) {
+    
     this._file = event.target.files;
+    
+    //fileName.substr(fileName.lastIndexOf('.')+1)
   }
 
   back() {
@@ -57,6 +60,15 @@ export class AdminUpdateTicketComponent implements OnInit {
     if (this._file != null) {
       if (this._file.length > 0) {
         const file = this._file[0];
+
+
+        /**If file uploaded is not pdf */
+        if(file.type != "application/pdf"){
+          alert("Please upload only pdf file.")
+          return false;
+        }
+
+
         let formData: FormData = new FormData();
         formData.append('file', file, file.name);
         formData.append(
@@ -65,6 +77,9 @@ export class AdminUpdateTicketComponent implements OnInit {
             type: 'application/json',
           })
         );
+
+
+        
         this._http.uploadFormDetails(formData).subscribe(
           (response) => {
             alert('Changes Updated Succesfully.');
