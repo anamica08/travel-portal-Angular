@@ -12,9 +12,9 @@ export class HttpclientService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getEmployees() {  
-    return this.httpClient.get<Employee[]>(`${this._baseUrl}/employees`);
-  }
+  // getEmployees() {  
+  //   return this.httpClient.get<Employee[]>(`${this._baseUrl}/employees`);
+  // }
 
   getAllTickets() {
     return this.httpClient.get<[]>(`${this._baseUrl}/admin/ticket`);

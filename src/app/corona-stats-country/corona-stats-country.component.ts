@@ -109,8 +109,10 @@ export class CoronaStatsCountryComponent implements OnInit {
     var yyyy = formattedDate.getFullYear();
     if (dd < 10) {
       date = '0'.concat(dd.toString());
+    }else{
+      date = dd.toString();
     }
-
+    	
     if (mm < 10) {
       month = '0'.concat(mm.toString());
     }
